@@ -8,17 +8,27 @@ function Header({ name, year }) {
     </header>
   );
 }
+
 const items = [
-  "Macaroni and Cheese",
-  "Salmon with Potatoes",
-  "Tofu with Vegetables"
+  "Salmon Bagel",
+  "Alfredo Style Chicken and Rice",
+  "Filet Minon",
+  "Broccoli Cheddar Soup"
 ];
 
+const dishObjects = items.map((dish, i) => ({
+  id: i,
+  title: dish
+}));
+
+console.log(dishObjects);
 function Main({ dishes }) {
   return (
     <ul>
       {dishes.map((dish) => (
-        <li style={{ listStyleType: "none" }}>{dish}</li>
+        <li key={dish.id} style={{ listStyleType: "none" }}>
+          {dish.title}
+          </li>
       ))}
     </ul>
   );
@@ -27,8 +37,8 @@ function Main({ dishes }) {
 function App() {
   return (
     <div>
-      <Header name="Alex" year={new Date().getFullYear()} />
-      <Main dishes={items} />
+      <Header name="Dianne" year={new Date().getFullYear()} />
+      <Main dishes={dishObjects} />
     </div>
   );
 }

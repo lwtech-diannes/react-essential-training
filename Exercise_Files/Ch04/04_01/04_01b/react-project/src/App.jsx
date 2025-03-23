@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import chef from "./images/chef.jpg";
 
@@ -49,8 +50,11 @@ function Main({ dishes }) {
 }
 
 function App() {
+  const [status, setStatus] = useState("Open");
+
   return (
     <div>
+      <h1>The Restaurant is currently {status} </h1>
       <Header name="Alex" year={new Date().getFullYear()} />
       <Main dishes={dishObjects} />
     </div>
